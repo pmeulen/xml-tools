@@ -33,7 +33,10 @@ CATALOG_SHARE=/opt/local/share/xml
 #LOCAL_FILE_PREFIX=""
 LOCAL_FILE_PREFIX="file://"
 
-
+CWD=`pwd`
+cd `dirname $0`
+LOCAL_SCHEMA_DIR="file://"`pwd`"/schemas"
+cd ${CWD}
 
 # Schemas to add to the catalog. Format:
 # <directory in CATALOG_SHARE to store schema>;<Schema download URL>;<Filename for schema on disk>
@@ -84,7 +87,8 @@ xacml;http://docs.oasis-open.org/xacml/2.0/access_control-xacml-2.0-context-sche
 xacml;http://docs.oasis-open.org/xacml/2.0/access_control-xacml-2.0-policy-schema-os.xsd;access_control-xacml-2.0-policy-schema-os.xsd
 xacml;http://docs.oasis-open.org/xacml/2.0/access_control-xacml-2.0-saml-assertion-schema-os.xsd;access_control-xacml-2.0-saml-assertion-schema-os.xsd
 xacml;http://docs.oasis-open.org/xacml/2.0/access_control-xacml-2.0-saml-protocol-schema-os.xsd;access_control-xacml-2.0-saml-protocol-schema-os.xsd
-xacml;http://docs.oasis-open.org/xacml/3.0/xacml-core-v3-schema-wd-17.xsd;xacml-core-v3-schema-wd-17.xsd"
+xacml;http://docs.oasis-open.org/xacml/3.0/xacml-core-v3-schema-wd-17.xsd;xacml-core-v3-schema-wd-17.xsd
+eherkenning;${LOCAL_SCHEMA_DIR}/etoegang-1.10-service-catalog.xsd;etoegang-1.10-service-catalog.xsd"
 
 ########################
 
