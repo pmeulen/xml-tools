@@ -3,7 +3,7 @@
 xml_file=$1
 
 # Get the namespace of the root element
-root_namespace=`xmllint $xml_file --noout --xpath "namespace-uri(/child::*)"`
+root_namespace=`xmllint $xml_file --nonet --noout --xpath "namespace-uri(/child::*)"`
 
 # Requires schema namespace in the the catalog
-xmllint $xml_file --noout --schema "$root_namespace"
+xmllint $xml_file --nonet --noout --schema "$root_namespace"
