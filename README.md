@@ -12,7 +12,7 @@ xmllib2 and xmllint (from libxml2-utils) will use this catalog automatically
 when it is stored in a well known location. For a Linux distro, you probrally need 
 to update the `CATALOG_LOCATION` and `CATALOG_SHARE` in `create_catalog.sh` first.
 You can use "xmllint --help" to find out what this location is on your system. Other
-application (like the Oxygen XML Editor on OSX) can use these catalog as well.
+applications (like the Oxygen XML Editor on OSX) can use the catalog as well.
 
 Schema's are downloaded once and stored locally. See create_catalog.sh for the list 
 of downloaded schema's and paths.
