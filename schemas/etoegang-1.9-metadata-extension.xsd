@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Downloaded from https://afsprakenstelsel.etoegang.nl/display/as/Metadata+for+participants -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="urn:etoegang:1.9:metadata-extension"
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified">
+ 
+    <xs:attribute name="validFrom" type="xs:dateTime"/>
+    <xs:attribute name="version" type="xs:string"/>
+
+</xs:schema>
