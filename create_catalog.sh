@@ -75,6 +75,7 @@ saml;http://docs.oasis-open.org/security/saml/v2.0/saml-schema-protocol-2.0.xsd;
 saml;http://docs.oasis-open.org/security/saml/v2.0/saml-schema-x500-2.0.xsd;saml-schema-x500-2.0.xsd
 saml;http://docs.oasis-open.org/security/saml/v2.0/saml-schema-xacml-2.0.xsd;saml-schema-xacml-2.0.xsd
 saml;http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-metadata-ui/v1.0/cs01/xsd/sstc-saml-metadata-ui-v1.0.xsd;sstc-saml-metadata-ui-v1.0.xsd
+saml;${LOCAL_SCHEMA_DIR}/shibmd-1.0.xsd;shibmd-1.0.xsd
 soap;http://schemas.xmlsoap.org/soap/envelope/;soap-envelope-1.1.xsd
 soap;http://www.w3.org/2003/05/soap-envelope/;soap-envelope-1.2.xsd
 xmlsec;http://www.w3.org/TR/xmldsig-core/xmldsig-core-schema.xsd;xmldsig-core-schema.xsd
@@ -88,7 +89,8 @@ xacml;http://docs.oasis-open.org/xacml/2.0/access_control-xacml-2.0-policy-schem
 xacml;http://docs.oasis-open.org/xacml/2.0/access_control-xacml-2.0-saml-assertion-schema-os.xsd;access_control-xacml-2.0-saml-assertion-schema-os.xsd
 xacml;http://docs.oasis-open.org/xacml/2.0/access_control-xacml-2.0-saml-protocol-schema-os.xsd;access_control-xacml-2.0-saml-protocol-schema-os.xsd
 xacml;http://docs.oasis-open.org/xacml/3.0/xacml-core-v3-schema-wd-17.xsd;xacml-core-v3-schema-wd-17.xsd
-eherkenning;${LOCAL_SCHEMA_DIR}/etoegang-1.10-service-catalog.xsd;etoegang-1.10-service-catalog.xsd"
+eherkenning;${LOCAL_SCHEMA_DIR}/etoegang-1.10-service-catalog.xsd;etoegang-1.10-service-catalog.xsd
+eherkenning;${LOCAL_SCHEMA_DIR}/etoegang-1.9-metadata-extension.xsd;etoegang-1.9-metadata-extension.xsd"
 
 ########################
 
