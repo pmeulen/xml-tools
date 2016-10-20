@@ -4,20 +4,27 @@ xml-tools
 Scripts to ease working with XML schemas on OSX and Linux. Should work
 out-of-the box on OSX.
 
-# create_catalog.sh
+# Creating an XML Catalog using create_catalog.sh 
 
-Downloads a bunch of schema's a creates an local XML catalog of them.
-Schema's are downloaded once and stored locally.
-The created XML catalog works xmllib2
-See create_catalog.sh for the list of downloaded schema's and paths.
+create_catalog.sh downloads a bunch of schema's and creates an local XML catalog from them.
 
-Use: `create_catalog.sh`
+xmllib2 and xmllint (from libxml2-utils) will use this catalog automatically
+when it is stored in a well known location. For a Linux distro, you probrally need 
+to update the `CATALOG_LOCATION` and `CATALOG_SHARE` in `create_catalog.sh` first.
+You can use "xmllint --help" to find out what this location is on your system. Other
+application (like the Oxygen XML Editor on OSX) can use these catalog as well.
 
-## Use the created catalog in Oxygen XML Editor
+Schema's are downloaded once and stored locally. See create_catalog.sh for the list 
+of downloaded schema's and paths.
 
-In options go to XML->XML Schema and add: `file:/opt/local/etc/xml/catalog`
+To create the catalog or to update an existing catalog run: `create_catalog.sh`
 
-Now schema validation and "Show definition" works for XML files that schema's
+## Using the created catalog in Oxygen XML Editor
+
+In the "Oxygen XML Editor" preferences go to XML->XML Schema and under "catalogs" add: 
+`file:/opt/local/etc/xml/catalog`
+
+Now XML schema validation and "Show definition" works for XML files that use schema's
 that are defined in the catalog.
 
 # xsdvalidate
