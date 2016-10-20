@@ -1,14 +1,14 @@
 xml-tools
 =========
 
-Scripts to ease working with XML schemas on OSX and Linux. Should work
-out-of-the box on OSX.
+Scripts to ease working with XML schemas on OSX and Linux. Works out-of-the box on OSX 
+with limxml2-utils from macports.
 
 # Creating an XML Catalog using create_catalog.sh 
 
 create_catalog.sh downloads a bunch of schema's and creates an local XML catalog from them.
-
-xmllib2 and xmllint (from libxml2-utils) will use this catalog automatically
+It requires xmlcatalog and curl. xmlcatalog is typicially packaged in libxml2-utils.
+The generated catalog is used by xmllib2 and xmllint will automatically
 when it is stored in a well known location. For a Linux distro, you probrally need 
 to update the `CATALOG_LOCATION` and `CATALOG_SHARE` in `create_catalog.sh` first.
 You can use "xmllint --help" to find out what this location is on your system. Other
@@ -30,6 +30,6 @@ that are defined in the catalog.
 # xsdvalidate
 
 Validates an XML file against it's schema using the XML catalog to
-lookup the schema's used in the XML file by namespace.
+lookup the schema's used in the XML file by namespace. Requires xmllint.
 
 Use: `xsdvalidate <XML file>`
