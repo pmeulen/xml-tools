@@ -30,6 +30,25 @@ In the "Oxygen XML Editor" preferences go to XML->XML Schema and under "catalogs
 Now XML schema validation and "Show definition" works for XML files that use schema's
 that are defined in the catalog.
 
+# Using the created catalog in JetBrains IDEs line IntelliJ, phpStorm, etc.
+Create and `catalog.properties` file (e.g. in the same directory as the catalog) with the following content:
+```
+# Catalog.properties file for Xerces (Java apps)
+# See: https://xerces.apache.org/xml-commons/components/resolver/tips.html#properties
+
+# List of XML catalog files to load, separated by ';'.
+catalogs=/opt/local/etc/xml/catalog
+
+# If non-zero, the Catalog classes will print informative and debugging
+verbosity=99
+```
+
+In the IDE preferences go to "Languages & Frameworks" -> "Schemas and DTDs" -> "Catalogs" and add the path to the 
+`catalog.properties` file.
+
+To test if the catalog is working, open an XML file that uses a schema that is defined in the catalog
+
+
 # Using the included `xsdvalidate` script
 
 `xsdvalidate` validates an XML file against it's schema using the XML catalog to
