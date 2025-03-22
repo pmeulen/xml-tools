@@ -182,9 +182,13 @@ while IFS= read -r line; do
     fi
 
     # Add schema to the catalog using download uri
-    echo "Adding schemaLocation: <uri name=\"$url\" uri=\"${LOCAL_FILE_PREFIX}$schema_location\"/>"
-    echo "xmlcatalog --noout --add uri \"$url\" ${LOCAL_FILE_PREFIX}$schema_location $CATALOG_LOCATION"
-    xmlcatalog --noout --add uri "$url" ${LOCAL_FILE_PREFIX}$schema_location $CATALOG_LOCATION
+    # First check if this is a schema from our LOCAL_SCHEMA_DIR, if so no translating is needed
+    if [[ $url != *$LOCAL_SCHEMA_DIR* ]]; then
+        # Add schema to the catalog by download uri
+        echo "Adding schemaLocation: <uri name=\"$url\" uri=\"${LOCAL_FILE_PREFIX}$schema_location\"/>"
+        echo "xmlcatalog --noout --add uri \"$url\" ${LOCAL_FILE_PREFIX}$schema_location $CATALOG_LOCATION"
+        xmlcatalog --noout --add uri "$url" ${LOCAL_FILE_PREFIX}$schema_location $CATALOG_LOCATION
+    fi
 
     # Get target namespace from the schema
     target_namespace=$(xmllint "$schema_location" --xpath "string(/child::node()/@targetNamespace)")
