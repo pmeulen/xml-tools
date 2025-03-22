@@ -9,6 +9,7 @@ if [ -z "$xml_file" ]; then
     echo "Validate an XML file against its schema"
     echo ""
     echo "Usage: $0 <xml_file> [additional options to pass to xmllint]"
+    echo "If xml_file is -, read from standard input"
     exit 1
 fi
 
@@ -19,12 +20,38 @@ then
     exit 1
 fi
 
+tmp_file=""
+# If xml_file is -, read the file to check from standard input to a temporary file
+if [ "$xml_file" = "-" ]; then
+    tmp_file=$(mktemp)
+    if [ -z "$tmp_file" ]; then
+        echo "Could not create temporary file"
+        exit 1
+    fi
+    cat > "$tmp_file"
+    xml_file="$tmp_file"
+fi
+
 # Get the namespace of the root element
 root_namespace=$(xmllint $xml_file --nonet --noout --xpath "namespace-uri(/child::*)")
+if [ -z "$root_namespace" ]; then
+    echo "Could not determine the namespace of the root element"
+    if [ -n "$tmp_file" ]; then
+        rm "$tmp_file"
+    fi
+    exit 1
+fi
 echo "Validating against $root_namespace"
 
-# Requires schema namespace to be present in the XML catalog
+# Validating requires the schema namespace to be present in the system XML catalog
 
 # Show command being run
 echo "xmllint $xml_file --nonet --noout --schema $root_namespace ${@}"
-xmllint "$xml_file" --nonet --noout --schema "$root_namespace" "${@}"
+xmllint "$xml_file" --nonet --noout --schema "$root_namespace" "${@}" 2>&1
+
+# Clean up
+if [ -n "$tmp_file" ]; then
+    rm "$tmp_file"
+fi
+
+exit 0
