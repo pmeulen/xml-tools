@@ -110,6 +110,9 @@ gpx;http://www.topografix.com/gpx/1/1/gpx.xsd;gpx-1.1.xsd
 eherkenning;${LOCAL_SCHEMA_DIR}/etoegang-1.10-service-catalog.xsd;etoegang-1.10-service-catalog.xsd
 eherkenning;${LOCAL_SCHEMA_DIR}/etoegang-1.9-metadata-extension.xsd;etoegang-1.9-metadata-extension.xsd
 
+# SURF schema's
+surf;${LOCAL_SCHEMA_DIR}/surf-stepup-gssp-extensions-1.0.xsd;surf-stepup-gssp-extensions-1.0.xsd                  
+
 # Add new schema's here
 EOF
 )
